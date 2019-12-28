@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import Layout from '../Layout';
+import Layout from '../components/Layout';
 
-export default () => {
+const Home: React.FC = () => {
   const [count, setCount] = useState(0);
   return (
     <Layout>
-      <div padding="10px">
+      <div>
         <button onClick={() => setCount(count + 1)}>+</button>
         home world {count}
       </div>
     </Layout>
   );
 };
+export default Home;

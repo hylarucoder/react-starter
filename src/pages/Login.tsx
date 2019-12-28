@@ -1,15 +1,17 @@
 import React from 'react';
-import auth from '../auth';
 import { useLocation, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userLoggedIn } from '@/store/account';
 
-export default function Login() {
+const Login: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };
+  const dispatch = useDispatch();
 
   const login = async () => {
     try {
-      await auth.authenticate();
+      dispatch(userLoggedIn(true));
       history.replace(from);
     } catch (err) {
       console.log(err);
@@ -21,4 +23,6 @@ export default function Login() {
       <button onClick={login}>click me to login</button>
     </div>
   );
-}
+};
+
+export default Login;

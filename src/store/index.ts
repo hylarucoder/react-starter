@@ -8,10 +8,10 @@ export const rootReducer = combineReducers({
   account: accountReducer
 });
 
-const index = configureStore({
+const store = configureStore({
   reducer: rootReducer
 });
 
-export { index };
+export { store };
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppDispatch = typeof index.dispatch;
+export type AppDispatch = typeof store.dispatch;
