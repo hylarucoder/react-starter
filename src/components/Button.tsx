@@ -1,18 +1,16 @@
-import { useHistory } from 'react-router';
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { userLoggedIn } from '@/store/account';
-import { useAccountLoggedIn } from '@/hooks/account';
+import { useHistory } from "react-router";
+import React from "react";
+import { useGlobalStore } from "@/hooks/useStore";
 
 export const Button = () => {
   const history = useHistory();
-  const dispatch = useDispatch();
-  const loggedIn = useAccountLoggedIn();
+  const store = useGlobalStore();
+  const loggedIn = store.loginedIn;
   return loggedIn ? (
     <button
       onClick={() => {
-        dispatch(userLoggedIn(false));
-        history.push('/');
+        store.logout()
+        history.push("/");
       }}
     >
       logout

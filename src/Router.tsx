@@ -1,33 +1,34 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from "react";
 
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { useAccountLoggedIn } from '@/hooks/account';
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { useGlobalStore } from "@/hooks/useStore";
 
-const Home = lazy(() => import(/* webpackChunkName: "Home" */ './pages/Home'));
-const NotFound = lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
-const About = lazy(() => import(/* webpackChunkName: "About" */ './pages/About'));
-const Private = lazy(() => import(/* webpackChunkName: "Private" */ './pages/Private'));
-const Login = lazy(() => import(/* webpackChunkName: "Login" */ './pages/Login'));
+const Home = lazy(() => import(/* webpackChunkName: "Home" */ "./pages/Home"));
+const NotFound = lazy(() => import(/* webpackChunkName: "NotFound" */ "./pages/NotFound"));
+const About = lazy(() => import(/* webpackChunkName: "About" */ "./pages/About"));
+const Private = lazy(() => import(/* webpackChunkName: "Private" */ "./pages/Private"));
+const Login = lazy(() => import(/* webpackChunkName: "Login" */ "./pages/Login"));
 
 type PrivateRouteProps = {
   children: React.ReactNode;
   path: string;
-  rest?: object;
+  rest?: any;
 };
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, path, ...rest }: PrivateRouteProps) => {
-  const loggedIn = useAccountLoggedIn();
+  const store = useGlobalStore();
+  const loggedIn = store.loginedIn;
   return (
     <Route
       path={path}
       {...rest}
-      render={props =>
+      render={(props) =>
         loggedIn ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: '/login', // eslint-disable-next-line react/prop-types
-              state: { from: props.location }
+              pathname: "/login", // eslint-disable-next-line react/prop-types
+              state: { from: props.location },
             }}
           />
         )

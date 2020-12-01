@@ -1,17 +1,17 @@
-import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { userLoggedIn } from '@/store/account';
+import React from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { useGlobalStore } from "@/hooks/useStore";
 
 const Login: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
-  const dispatch = useDispatch();
+  // @ts-ignore
+  const { from }: { from: any } = location.state || { from: { pathname: "/" } };
+  const store = useGlobalStore();
 
   const login = async () => {
     try {
-      dispatch(userLoggedIn(true));
+      store.login();
       history.replace(from);
     } catch (err) {
       console.log(err);
