@@ -1,1 +1,1 @@
-export const TITLE = '这是标题';
+export const TITLE = "这是标题";

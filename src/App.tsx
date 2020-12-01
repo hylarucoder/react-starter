@@ -1,10 +1,27 @@
 import React, { useEffect } from "react";
 import Router from "./Router";
+import { ProvideStore, useGlobalStore } from "./hooks/useStore";
+
+function Main() {
+  // const store = useGlobalStore();
+  useEffect(() => {
+    // TODO: login
+    // store.login();
+  }, []);
+  return (
+    <>
+      <Router />;
+    </>
+  );
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const App: React.FC = (props: { children?: React.ReactNode }) => {
-  useEffect(() => {}, []);
-  return <Router />;
+  return (
+    <ProvideStore>
+      <Main />
+    </ProvideStore>
+  );
 };
 
 export default App;
