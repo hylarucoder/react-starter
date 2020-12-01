@@ -1,28 +1,25 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { userLoggedIn } from '@/store/account';
+import {useLocation, useHistory} from 'react-router-dom';
 
 const Login: React.FC = () => {
-  const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
-  const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
+    // @ts-ignore
+    const {from}: { from: any } = location.state || {from: {pathname: '/'}};
 
-  const login = async () => {
-    try {
-      dispatch(userLoggedIn(true));
-      history.replace(from);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    const login = async () => {
+        try {
+            history.replace(from);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-  return (
-    <div>
-      <button onClick={login}>click me to login</button>
-    </div>
-  );
+    return (
+        <div>
+            <button onClick={login}>click me to login</button>
+        </div>
+    );
 };
 
 export default Login;
