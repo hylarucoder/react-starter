@@ -9,6 +9,7 @@ export const Button = () => {
   return loggedIn ? (
     <button
       onClick={() => {
+        store.logout()
         history.push("/");
       }}
     >

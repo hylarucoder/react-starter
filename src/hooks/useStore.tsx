@@ -12,7 +12,7 @@ export interface MGlobalStore extends TInitialState {
 }
 
 export const INITIAL_STORE: TInitialState = {
-  loginedIn: true,
+  loginedIn: false,
 };
 
 export const StoreContext = React.createContext(INITIAL_STORE as MGlobalStore);

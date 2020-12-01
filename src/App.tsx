@@ -8,11 +8,7 @@ function Main() {
     // TODO: login
     // store.login();
   }, []);
-  return (
-    <>
-      <Router />;
-    </>
-  );
+  return <Router />;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
