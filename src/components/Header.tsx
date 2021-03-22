@@ -1,11 +1,11 @@
-import { Button } from "@/components/Button";
+import { ButtonLogin } from "@/components/Button";
 import { Link } from "react-router-dom";
 import React from "react";
 
 export const Header = () => {
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+      <nav className="flex items-center justify-between flex-wrap bg-blue-500 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <svg
             className="fill-current h-8 w-8 mr-2"
@@ -39,11 +39,8 @@ export const Header = () => {
             </Link>
           </div>
           <div>
-            <Link
-              to="/private"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >
-              <Button />
+            <Link to="/private">
+              <ButtonLogin />
             </Link>
           </div>
         </div>

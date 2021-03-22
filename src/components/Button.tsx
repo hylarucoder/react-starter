@@ -1,20 +1,21 @@
 import { useHistory } from "react-router";
 import React from "react";
 import { useGlobalStore } from "@/hooks/useStore";
+import { Button } from "antd";
 
-export const Button = () => {
+export const ButtonLogin = () => {
   const history = useHistory();
   const store = useGlobalStore();
   const loggedIn = store.loginedIn;
   return loggedIn ? (
-    <button
+    <Button
       onClick={() => {
-        store.logout()
+        store.logout();
         history.push("/");
       }}
     >
       logout
-    </button>
+    </Button>
   ) : (
     <p>you are not login</p>
   );
