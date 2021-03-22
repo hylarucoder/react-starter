@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "react-starter",
   "scripts": {
+    "postinstall": "husky install",
     "build": "vite build",
     "dev": "vite",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
@@ -10,16 +11,16 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "cross-env NODE_ENV=development eslint --cache"
+      "prettier --ignore-path .eslintignore --write"
     ],
     "{*.json,.{babelrc,eslintrc,prettierrc}}": [
       "prettier --ignore-path .eslintignore --parser json --write"
     ],
     "*.{css,scss}": [
-      "prettier --ignore-path .eslintignore --single-quote --write"
+      "prettier --ignore-path .eslintignore --write"
     ],
     "*.{html,md,yml}": [
-      "prettier --ignore-path .eslintignore --single-quote --write"
+      "prettier --ignore-path .eslintignore --write"
     ]
   },
   "author": {
