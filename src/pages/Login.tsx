@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { useGlobalStore } from "@/hooks/useStore";
+import { Button } from "antd";
 
 const Login: React.FC = () => {
   const history = useHistory();
@@ -20,7 +21,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <button onClick={login}>click me to login</button>
+      <Button onClick={login}>click me to login</Button>
     </div>
   );
 };

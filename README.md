@@ -4,7 +4,7 @@ A very opinionated and uncompromising boilerplate for react start
 
 ## Feature
 
-1. All Feature Supported By React Script - (style-loader/hot-reload/code-splitting/assets-management)
+1. All Feature Supported By Vite
 2. Type Hint  - Typescript for better multi-user developing experience
 3. style management - tailwind for startup and then styled-components for dedicatedly styling components
 4. store management - mobx-react

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./App.css";
 import Router from "./Router";
 import { ProvideStore, useGlobalStore } from "./hooks/useStore";
 
